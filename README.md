@@ -1,3 +1,4 @@
 # deep-guitar
-Machine learning guitar project
+Machine Learning Final Project for Modal Modal ML
+
 
