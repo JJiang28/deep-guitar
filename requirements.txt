@@ -1,0 +1,10 @@
+matplotlib>=2.2
+numpy
+pandas
+pytest==4.0.1
+librosa
+keras
+opencv-python
+seaborn
+tensorflow
+tqdm
