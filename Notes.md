@@ -21,3 +21,10 @@ This mark down file is used to keep track of progress throughout the project to 
   + Videos come in different resolutions and audio quality which may affect results.
 + I will handle all the preprocessing for the audio you just need to convert these into melspectrograms and handle video processing
 + Going to focus on the audio modality first before video.
+
+# 5/2/2023
++ Finished downloading all the videos for dataset
++ TODO: Edit all the videos to size.
++ TODO: Convert mp4 to wav
++ TODO: Extract Audio features
++ TODO: Build Nueral Network 
