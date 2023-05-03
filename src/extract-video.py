@@ -6,7 +6,7 @@ import csv
 import os
 
 cap = cv2.VideoCapture('./../dataset_raw/Intro/Video/Intro0.mp4')
-cap.set(cv2.CAP_PROP_FPS, 100)
+cap.set(cv2.CAP_PROP_FPS, 24)
 frame_width = int(cap.get(3))
 frame_height = int(cap.get(4))
 size = (frame_width, frame_height)
@@ -28,7 +28,7 @@ for filename in os.listdir(videos_dir):
     print(f'Processing video: {video_path}')
 
     cap = cv2.VideoCapture(video_path)
-    cap.set(cv2.CAP_PROP_FPS, 100)
+    cap.set(cv2.CAP_PROP_FPS, 24)
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
     size = (frame_width, frame_height)
@@ -61,7 +61,7 @@ for filename in os.listdir(videos_dir):
                         current_time = time.time()
                         if current_time - start_time >= 1:
                             counter += 1
-                            data.append((filename,counter, index_distance, middle_distance, ring_distance, pinky_distance))
+                            data.append((filename,cap.get(cv2.CAP_PROP_POS_MSEC)/1000, index_distance, middle_distance, ring_distance, pinky_distance))
                             start_time = current_time
             cv2.waitKey(1)
         else:
