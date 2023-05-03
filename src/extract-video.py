@@ -17,7 +17,9 @@ mp_draw = mp.solutions.drawing_utils
 start_time = time.time()
 
 videos_dir = './../dataset_raw/Intro/Video/'
-output_file = 'finger_chords.csv'
+
+# DO NOT OVERWRITE THE FILE PLEASE
+# output_file = 'finger_chords.csv'
 
 
 data = [('filename','time', 'index', 'middle', 'ring', 'pinky')]
