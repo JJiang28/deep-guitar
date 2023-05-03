@@ -2,17 +2,11 @@ import cv2
 import mediapipe as mp
 import math
 import time
-<<<<<<< HEAD
-
-cap = cv2.VideoCapture('./../dataset_raw/Intro/Video/Intro0.mp4')
-cap.set(cv2.CAP_PROP_FPS, 24)
-=======
 import csv
 import os
 
-cap = cv2.VideoCapture('./dataset_raw/Intro/Video/Intro0.mp4')
+cap = cv2.VideoCapture('./../dataset_raw/Intro/Video/Intro0.mp4')
 cap.set(cv2.CAP_PROP_FPS, 100)
->>>>>>> 9db42c576d66ffee1576f41e83a6ec268d740da8
 frame_width = int(cap.get(3))
 frame_height = int(cap.get(4))
 size = (frame_width, frame_height)
@@ -22,35 +16,8 @@ hands = mp_hands.Hands(min_detection_confidence=0.75, min_tracking_confidence=0.
 mp_draw = mp.solutions.drawing_utils
 start_time = time.time()
 
-<<<<<<< HEAD
-frame_counter = 0
-while True:
-    success, image = cap.read()
-    if success:
-
-        image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        results = hands.process(image_rgb)
-
-        if results.multi_hand_landmarks:
-            for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
-                if handedness.classification[0].label == 'Right':
-                    index_finger_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
-                    pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
-                    distance = math.sqrt((index_finger_tip.x - pinky_tip.x) ** 2 + (index_finger_tip.y - pinky_tip.y) ** 2)
-                    current_time = time.time()
-                    if current_time - start_time >= 1:
-                        print(distance)
-                        start_time = current_time
-                mp_draw.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-        cv2.imshow('cv2', image)
-
-        cv2.waitKey(2)
-    else:
-        break
-=======
-videos_dir = './dataset_raw/Intro/Video/'
+videos_dir = './../dataset_raw/Intro/Video/'
 output_file = 'finger_chords.csv'
->>>>>>> 9db42c576d66ffee1576f41e83a6ec268d740da8
 
 
 data = [('filename','time', 'index', 'middle', 'ring', 'pinky')]
@@ -100,7 +67,7 @@ for filename in os.listdir(videos_dir):
         else:
             break
 
-with open('./src/data/finger_chords.csv', 'w', newline='') as csvfile:
+with open('./data/finger_chords.csv', 'w', newline='') as csvfile:
       # Create a CSV writer object
     writer = csv.writer(csvfile)
 
