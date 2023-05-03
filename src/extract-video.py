@@ -2,10 +2,9 @@ import cv2
 import mediapipe as mp
 import math
 import time
-import csv
 
-cap = cv2.VideoCapture('./dataset_raw/Intro/Intro0.mp4')
-cap.set(cv2.CAP_PROP_FPS, 100)
+cap = cv2.VideoCapture('./../dataset_raw/Intro/Video/Intro0.mp4')
+cap.set(cv2.CAP_PROP_FPS, 24)
 frame_width = int(cap.get(3))
 frame_height = int(cap.get(4))
 size = (frame_width, frame_height)
@@ -19,9 +18,6 @@ frame_counter = 0
 while True:
     success, image = cap.read()
     if success:
-        frame_counter += 1
-        if frame_counter % 2 != 0:
-            continue
 
         image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         results = hands.process(image_rgb)
@@ -36,8 +32,10 @@ while True:
                     if current_time - start_time >= 1:
                         print(distance)
                         start_time = current_time
+                mp_draw.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+        cv2.imshow('cv2', image)
+
         cv2.waitKey(2)
-        time.sleep(0.01)
     else:
         break
 
