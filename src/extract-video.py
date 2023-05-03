@@ -61,7 +61,7 @@ for filename in os.listdir(videos_dir):
                         current_time = time.time()
                         if current_time - start_time >= 1:
                             counter += 1
-                            data.append((filename,counter, index_distance, middle_distance, ring_distance, pinky_distance))
+                            data.append((filename, cap.get(cv2.CAP_PROP_POS_MSEC) / 1000, index_distance, middle_distance, ring_distance, pinky_distance))
                             start_time = current_time
             cv2.waitKey(1)
         else:
