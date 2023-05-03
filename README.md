@@ -1,12 +1,12 @@
 # deep-guitar
-Machine Learning Final Project for Modal Modal ML
+Machine Learning Final Project for Multimodal ML
 
 Authors:
 Jason Jiang, Kaniel Vicencio, Michael Tu
 
 # About 
 
-# Installation
+## Installation
 To install all the required packages run the following command in the terminal:
     
     $pip install -r requirements.txt
